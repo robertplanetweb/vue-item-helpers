@@ -28,6 +28,27 @@ const Items = {
         return plucked;
     },
 
+    groupBy(items, key = 'id') {
+        let not_empty = handleEmpty(items);
+        if ( not_empty !== true ) {
+            return not_empty;
+        }
+
+        let new_items = Array.isArray(items) ? [] : {};
+        let count = Array.isArray(items) ? items.length : Object.keys(items).length;
+        for ( let i = 0; i < count; i++ ) {
+            let index = Array.isArray(items) ? i : Object.keys(items)[i];
+
+            if (typeof new_items[items[index][key]] === 'undefined') {
+                new_items[items[index][key]] = [];
+            }
+
+            new_items[items[index][key]].push(items[index]);
+        }
+
+        return new_items;
+    },
+
     find(items, ids) {
         let not_empty = handleEmpty(items);
         if ( not_empty !== true ) {

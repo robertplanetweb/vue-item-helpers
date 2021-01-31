@@ -1,5 +1,5 @@
 {
-  "name": "vue-item-helpers",
+  "name": "@robertpw1/vue-item-helpers",
   "version": "1.0.0",
   "description": "manage arrays of objects more easily",
   "main": "index.js",
